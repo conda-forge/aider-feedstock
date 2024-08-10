@@ -1,5 +1,5 @@
 {% set name = "aider" %}
-{% set version = "0.2.4" %}
+{% set version = "0.2.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/aider-{{ version }}.tar.gz
-  sha256: c8a1f5b0c9b54cfe70e24f1185bb0b7ab9f691cce51234cc3fc8a8d245761db8
+  sha256: 770ecdf888e15215ae4b10cde22b6961ba67b0bd7737b2260c6efd0ef76b969d
 
 build:
   noarch: python
