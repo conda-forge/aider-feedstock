@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  name: aider
+  version: "0.2.6"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/aider-${{ version }}.tar.gz
+  sha256: 770ecdf888e15215ae4b10cde22b6961ba67b0bd7737b2260c6efd0ef76b969d
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - configparser
+
+tests:
+  - python:
+      imports:
+        - aider
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: general utilities
+  license: MIT
+  license_file: LICENSE.txt
+  homepage: https://github.com/rnm-patel/aider
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
